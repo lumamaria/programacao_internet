@@ -13,17 +13,16 @@
 
     <div class="grid-item">
         <h3>Notícias Relacionadas</h3>
-        {% if object.noticias.exists %}
+        
             <ul>
-                {% for noticia in object.noticias.all %}
+                {% for noticia in tag.noticia_set.all %}
                     <li><a href="{% url 'noticias:noticia_detalhe' noticia.id %}">{{ noticia.titulo }}</a></li>
+                {% empty %}
+                    <p>Nenhuma notícia relacionada a esta categoria.</p>
                 {% endfor %}
             </ul>
-        {% else %}
-            <p>Nenhuma notícia relacionada a esta categoria.</p>
-        {% endif %}
     </div>
 </div>
 
-<a href="{% url 'noticias:' %}" class="btn-back">&larr; Voltar para as categorias</a>
+<a href="{% url 'noticias:tags' %}" class="btn-back">&larr; Voltar para as tags</a>
 {% endblock %}
