@@ -8,6 +8,8 @@ urlpatterns = [
   # Categorias
   path("categoria/lista/", views.categorias_lista_view, name="categorias"),
   path("categoria/detalhe/<int:categoria_id>/", views.categoria_detalhe_view, name="categoria_detalhe"),
+  path("categoria/criar/", views.categoria_create_view, name="categoria_create"),
+  path("categoria/editar/<int:categoria_id>/", views.categoria_update_view, name="categoria_update"),
   # Tags
   path("tag/lista/", views.tags_lista_view, name="tags"),
   path("tag/detalhe/<int:tag_id>/", views.tag_detalhe_view, name="tag_detalhe"),
