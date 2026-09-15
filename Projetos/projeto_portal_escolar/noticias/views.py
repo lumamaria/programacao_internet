@@ -54,6 +54,11 @@ def categoria_update_view(request, categoria_id):
         "categoria": categoria,
     })
 
+def categoria_delete_view(request, categoria_id):
+    categoria = models.Categoria.objects.get(id=categoria_id)
+    categoria.delete()
+    return redirect("noticias:categorias")
+
 def tags_lista_view(request):
     tags = models.Tag.objects.all()
 

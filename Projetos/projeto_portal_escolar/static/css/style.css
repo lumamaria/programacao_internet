@@ -209,3 +209,31 @@ footer {
     padding: 1.5rem;
     margin-top: auto;
 }
+
+.btn-edit {
+    display: inline-block;
+    background-color: #f0ad4e;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    margin-right: 0.5rem;
+}
+
+btn-edit:hover {
+    background-color: #ec971f;
+}
+
+.btn-exclude {
+    display: inline-block;
+    background-color: #d9534f;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    margin-right: 0.5rem;
+}
+
+.btn-exclude:hover {
+    background-color: #c9302c;
+}
