@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjetoIF - Projetos de Extensão</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32; /* Verde IFRN */
+            --bg-color: #f4f6f8;
+            --text-color: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #e8f5e9;
+            color: var(--primary-color);
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .btn:hover {
+            background-color: #1b5e20;
+        }
+        .badge {
+            background-color: #e0e0e0;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Portal ProjetoIF</h1>
+        <p>Sistema de Gestão de Projetos de Extensão</p>
+    </header>
+
+    <div class="container">
+        <!-- O conteúdo das outras páginas será injetado aqui -->
+        {% block content %}
+        {% endblock %}
+    </div>
+
+</body>
+</html>
