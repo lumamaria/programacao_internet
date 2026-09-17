@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <a href="{% url 'projeto:lista' %}" style="color: #666; text-decoration: none;">&larr; Voltar para a lista</a>
+    
+    <h2 style="margin-top: 1.5rem;">{{ projeto.titulo }}</h2>
+    <p><strong>Categoria:</strong> <span class="badge">{{ projeto.categoria.nome }}</span></p>
+    <p><strong>Data de Início:</strong> {{ projeto.data_inicio|date:"d/m/Y" }}</p>
+    
+    <h3>Descrição</h3>
+    <p style="line-height: 1.6;">{{ projeto.descricao }}</p>
+    
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 2rem 0;">
+    
+    <h3>Equipe do Projeto</h3>
+    <ul>
+        <!-- Ponto Crítico da Atividade: Acessando o ManyToManyField com .all -->
+        {% for aluno in projeto.equipe.all %}
+            <li style="margin-bottom: 0.5rem;">
+                <strong>{{ aluno.nome }}</strong> (Matrícula: {{ aluno.matricula }})
+                
+                <!-- Extra: Verificando o relacionamento 1:1 de forma segura -->
+                {% if aluno.perfil %}
+                    - <a href="{{ aluno.perfil.link_lattes }}" target="_blank">Acessar Lattes</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>Ainda não há alunos vinculados a este projeto.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

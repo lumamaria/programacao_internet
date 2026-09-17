@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <h2>Projetos em Andamento</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Título do Projeto</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for projeto in projetos %}
+            <tr>
+                <td>{{ projeto.titulo }}</td>
+                <!-- Acessando o relacionamento ForeignKey (1:N) -->
+                <td><span class="badge">{{ projeto.categoria.nome }}</span></td>
+                <td>
+                    <!-- Link para a página de detalhes -->
+                    <a href="{% url 'projeto:detalhe' projeto.id %}" class="btn">Ver Detalhes</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" style="text-align: center;">Nenhum projeto cadastrado no sistema.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
